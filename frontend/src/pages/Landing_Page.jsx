@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { Link } from 'react-router'
 
 import bg from '../assets/images/firstpage_bg.png'
 import banner from '../assets/images/banner.png'
@@ -14,17 +15,17 @@ export default function Landing_Page() {
         font-sans text-white"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      {/* Background overlays — slightly brighter */}
+      {/* Background overlays */}
       <div
         className="pointer-events-none absolute inset-0 z-0
-    bg-gradient-to-r from-[#101d16]/70
-    via-[#101d16]/35 to-[#101d16]/5"
+          bg-gradient-to-r from-[#101d16]/70
+          via-[#101d16]/35 to-[#101d16]/5"
       />
 
       <div
         className="pointer-events-none absolute inset-0 z-0
-    bg-gradient-to-t from-[#101d16]/45
-    via-transparent to-[#101d16]/15"
+          bg-gradient-to-t from-[#101d16]/45
+          via-transparent to-[#101d16]/15"
       />
 
       {/* Navigation */}
@@ -33,13 +34,14 @@ export default function Landing_Page() {
           border-b border-white/15 px-5 py-5
           sm:px-8 sm:py-6 lg:px-16"
       >
-        <a
-          href="#home"
+        {/* BIOXTURE logo returns to landing page */}
+        <Link
+          to="/"
           className="text-base font-semibold tracking-[0.22em]
             text-white transition-opacity hover:opacity-75 sm:text-lg"
         >
           BIOXTURE
-        </a>
+        </Link>
 
         <div
           className="hidden items-center gap-3 text-[9px]
@@ -52,6 +54,7 @@ export default function Landing_Page() {
           AUTONOMOUS GROWING
         </div>
 
+        {/* Discover scrolls to the landing page section */}
         <a
           href="#discover"
           className="group flex items-center gap-2
@@ -203,8 +206,9 @@ export default function Landing_Page() {
               className="mt-7 flex flex-col items-start gap-4
                 sm:mt-8 sm:flex-row sm:items-center sm:gap-6"
             >
-              <a
-                href="#explore"
+              {/* Explore button navigates to dashboard */}
+              <Link
+                to="/home"
                 className="group inline-flex items-center gap-6
                   rounded-full border border-white/50
                   bg-[#f5f5ef] px-6 py-3.5 text-xs
@@ -220,7 +224,7 @@ export default function Landing_Page() {
                 >
                   ↗
                 </span>
-              </a>
+              </Link>
 
               <span
                 className="text-[9px] tracking-[0.18em] text-white/60"
@@ -245,7 +249,7 @@ export default function Landing_Page() {
                 sm:h-72 sm:w-72 lg:h-80 lg:w-80"
             />
 
-            {/* Product Image — dullness applied only here */}
+            {/* Product Image: dullness applied only here */}
             <img
               src={object}
               alt="BIOXTURE autonomous greenhouse with a growing plant"
