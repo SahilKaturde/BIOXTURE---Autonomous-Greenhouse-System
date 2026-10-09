@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes.plants import router as plants_router
+
 
 from app.config import settings
 
@@ -19,6 +21,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+app.include_router(plants_router)
 
 @app.get("/health")
 def health_check():
